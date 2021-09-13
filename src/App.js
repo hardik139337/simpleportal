@@ -12,6 +12,22 @@ function App() {
     { name: "Mark", price: "5", detail: "detail of mark" },
     { name: "Mark", price: "5", detail: "detail of mark" },
     { name: "Mark", price: "5", detail: "detail of mark" },
+    { name: "Mark", price: "5", detail: "detail of mark" },
+    { name: "Mark", price: "5", detail: "detail of mark" },
+    { name: "Mark", price: "5", detail: "detail of mark" },
+    { name: "Mark", price: "5", detail: "detail of mark" },
+    { name: "Mark", price: "5", detail: "detail of mark" },
+    { name: "Mark", price: "5", detail: "detail of mark" },
+    { name: "Mark", price: "5", detail: "detail of mark" },
+    { name: "Mark", price: "5", detail: "detail of mark" },
+    { name: "Mark", price: "5", detail: "detail of mark" },
+    { name: "Mark", price: "5", detail: "detail of mark" },
+    { name: "Mark", price: "5", detail: "detail of mark" },
+    { name: "Mark", price: "5", detail: "detail of mark" },
+    { name: "Mark", price: "5", detail: "detail of mark" },
+    { name: "Mark", price: "5", detail: "detail of mark" },
+    { name: "Mark", price: "5", detail: "detail of mark" },
+    { name: "Mark", price: "5", detail: "detail of mark" },
   ]);
 
   let additem = (item) => {
@@ -30,7 +46,7 @@ function App() {
         <Route path="/edit">
           <Dashboardedit items={items} setitems={setitems}></Dashboardedit>
 
-          <Add  additem={additem}></Add>
+          <Add additem={additem}></Add>
         </Route>
       </Switch>
     </div>
