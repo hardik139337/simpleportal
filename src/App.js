@@ -7,6 +7,7 @@ import Signup from "./com/Signup";
 import Dashboard from "./com/dashboard";
 import Add from "./com/add";
 import Dashboardedit from "./com/Dashboardedit";
+
 function App() {
   const [items, setitems] = useState([
     { name: "Mark", price: "5", detail: "detail of mark" },
