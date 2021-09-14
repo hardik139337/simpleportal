@@ -1,25 +1,66 @@
-import React from "react";
-export default function Signup() {
+import React, { useState } from "react";
+// import { useHistory } from "react-router-dom";
+
+// import "./login.css";
+export default function Login() {
+  // const history = useHistory();
+
+  const [state, setState] = useState({
+    id: "",
+    password: "",
+    wrongpassword: false,
+  });
+  let myChangeHandler = (event) => {
+    setState({ ...state, [event.target.name]: event.target.value });
+  };
+
   return (
     <div className="wrapper fadeInDown">
       <div id="formContent">
-        <form>
-          <input
-            type="text"
-            id="login"
-            className="fadeIn second"
-            name="login"
-            placeholder="Signup"
-          />
-          <input
-            type="text"
-            id="password"
-            className="fadeIn third"
-            name="login"
-            placeholder="password"
-          />
-          <input type="submit" className="fadeIn fourth" value="Signup" />
-        </form>
+        {state.wrongpassword && "signup"}
+        <input
+          value={state.id}
+          type="text"
+          id="login"
+          className="fadeIn second"
+          name="id"
+          placeholder="signup"
+          onChange={myChangeHandler}
+        />
+        <input
+          value={state.password}
+          type="text"
+          id="password"
+          className="fadeIn third"
+          name="password"
+          placeholder="password"
+          onChange={myChangeHandler}
+        />
+        <input
+          type="submit"
+          className="fadeIn fourth"
+          value="signup"
+          onClick={() => {
+            // if (state.id == "admin" && state.password == "admin") {
+            //   localStorage.setItem("islogin", true);
+            //   history.push(`/dashboard`);
+            // }
+            let users = JSON.parse(localStorage.getItem("users")) ?? [
+              {
+                id: "admin",
+                password: "admin",
+              },
+            ];
+            localStorage.setItem(
+              "users",
+              JSON.stringify([
+                ...users,
+                { id: state.id, password: state.password },
+              ])
+            );
+            setState({ ...state, wrongpassword: true });
+          }}
+        />
       </div>
     </div>
   );
