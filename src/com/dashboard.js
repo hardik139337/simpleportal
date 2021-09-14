@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import ReactPaginate from "react-paginate";
 import { Link } from "react-router-dom";
 import { CSVLink } from "react-csv";
+import Search from "./Search";
 
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 
-export default function Dashboard({ items }) {
+export default function Dashboard({ items, setitems }) {
   const [postsPerPage] = useState(5);
   // const [offset, setOffset] = useState(1);
   const [pageCount, setPageCount] = useState(0);
@@ -24,8 +25,53 @@ export default function Dashboard({ items }) {
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">name</th>
-            <th scope="col">price</th>
+            <th scope="col">
+              <button
+                onClick={() => {
+                  let temp = items;
+                  temp.sort((a, b) => {
+                    if (a.name < b.name) {
+                      return -1;
+                    }
+                    if (a.name > b.name) {
+                      return 1;
+                    }
+                    return 0;
+                  });
+                  setitems(temp);
+                  // console.log(temp);
+                  setAllPosts(temp.slice(0, 5));
+                }}
+              >
+                name
+              </button>
+              <Search
+                posts={posts}
+                setAllPosts={setAllPosts}
+                items={items}
+              ></Search>
+            </th>
+            <th scope="col">
+              <button
+                onClick={() => {
+                  let temp = items;
+                  temp.sort((a, b) => {
+                    if (a.price < b.price) {
+                      return -1;
+                    }
+                    if (a.price > b.price) {
+                      return 1;
+                    }
+                    return 0;
+                  });
+                  setitems(temp);
+                  // console.log(temp);
+                  setAllPosts(temp.slice(0, 5));
+                }}
+              >
+                price
+              </button>
+            </th>
             <th scope="col">detail</th>
           </tr>
         </thead>

@@ -46,7 +46,7 @@ function App() {
         <Islogin>
           <Route path="/signup" component={Signup} />
           <Route path="/dashboard">
-            <Dashboard items={items}></Dashboard>
+            <Dashboard items={items} setitems={setitems}></Dashboard>
             {/* <Add additem={additem}></Add> */}
           </Route>
           <Route path="/edit">

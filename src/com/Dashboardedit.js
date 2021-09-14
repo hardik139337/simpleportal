@@ -9,6 +9,7 @@ export default function Dashboard({ items, setitems }) {
         <thead>
           <tr>
             <th scope="col">#</th>
+
             <th scope="col">name</th>
             <th scope="col">price</th>
             <th scope="col">detail</th>
