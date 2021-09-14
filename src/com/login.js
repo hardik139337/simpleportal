@@ -1,8 +1,9 @@
+import PropTypes from "prop-types";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 // import "./login.css";
-export default function Login() {
+export default function Login({ setIslogin }) {
   const history = useHistory();
 
   const [state, setState] = useState({
@@ -45,18 +46,25 @@ export default function Login() {
             let tempuser = users
               ? users.filter((u) => u.id == state.id)[0]
               : { id: "", password: "" };
-
+            // console.log(tempuser);
             if (
-              state.id == tempuser.id &&
-              state.password == tempuser.password
+              state.id === tempuser.id &&
+              state.password === tempuser.password
             ) {
-              localStorage.setItem("islogin", true);
+              // console.log("true");
+              localStorage.setItem("islogin", "true");
+              setIslogin(true);
+
               history.push(`/dashboard`);
-            }
-            setState({ ...state, wrongpassword: true });
+            } else setState({ ...state, wrongpassword: true });
           }}
         />
       </div>
     </div>
   );
 }
+
+Login.propTypes = {
+  islogin: PropTypes.bool,
+  setIslogin: PropTypes.func,
+};

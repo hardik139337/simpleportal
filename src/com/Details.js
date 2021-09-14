@@ -1,8 +1,6 @@
+import PropTypes from "prop-types";
 import React, { useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
-
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
 
 export default function Details({ items, setitems }) {
   let { id } = useParams();
@@ -21,7 +19,6 @@ export default function Details({ items, setitems }) {
 
   return (
     <div>
-      {/* {console.log(state, "aasdasd")} */}
       <input
         type="text"
         value={state.name}
@@ -50,7 +47,6 @@ export default function Details({ items, setitems }) {
             1
           );
           setitems(temp);
-          // <Redirect to="/" />;
           history.push(`/dashboard`);
         }}
       >
@@ -59,3 +55,10 @@ export default function Details({ items, setitems }) {
     </div>
   );
 }
+
+Details.propTypes = {
+  items: PropTypes.shape({
+    filter: PropTypes.func,
+  }),
+  setitems: PropTypes.func,
+};

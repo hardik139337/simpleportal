@@ -1,8 +1,8 @@
+import PropTypes from "prop-types";
 import React from "react";
 import { Link } from "react-router-dom";
-/* eslint-disable react/prop-types */
 
-function Header() {
+function Header({ islogin, setIslogin }) {
   return (
     <div>
       <header style={{ display: "flex" }}>
@@ -16,16 +16,35 @@ function Header() {
           add
         </Link>
         <div style={{ marginLeft: "auto" }}>
-          <Link to="login" className="btn ">
-            Login{" "}
-          </Link>
-          <Link to="signup" className="btn ">
-            Signup
-          </Link>
+          {!islogin ? (
+            <>
+              {" "}
+              <Link to="login" className="btn ">
+                Login{" "}
+              </Link>
+              <Link to="signup" className="btn ">
+                Signup
+              </Link>
+            </>
+          ) : (
+            <button
+              onClick={() => {
+                localStorage.removeItem("islogin");
+                setIslogin(false);
+              }}
+            >
+              sine out
+            </button>
+          )}
         </div>
       </header>
     </div>
   );
 }
+
+Header.propTypes = {
+  islogin: PropTypes.bool,
+  setIslogin: PropTypes.func,
+};
 
 export default Header;

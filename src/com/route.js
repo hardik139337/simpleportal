@@ -1,41 +1,19 @@
+import PropTypes from "prop-types";
 import React from "react";
-import { Route, Redirect } from "react-router-dom";
-// import { isLogin } from '../utils';
-/* eslint-disable react/prop-types */
+import { Redirect } from "react-router-dom";
 
 let isLogin = () => {
-    
-  return true;
+  console.log("islogin");
+  let temp = localStorage.getItem("islogin");
+  console.log(temp);
+  if (temp == "true") return true;
+  else return false;
 };
-
-// import React from "react";
 
 export default function Islogin(props) {
   return isLogin() ? props.children : <Redirect to="/login" />;
 }
 
-export const PrivateRoute = ({ component: Component, ...rest }) => {
-  return (
-    <Route
-      {...rest}
-      render={(props) =>
-        isLogin() ? <Component {...props} /> : <Redirect to="/login" />
-      }
-    />
-  );
-};
-
-export const PublicRoute = ({ component: Component, restricted, ...rest }) => {
-  return (
-    <Route
-      {...rest}
-      render={(props) =>
-        isLogin() && restricted ? (
-          <Redirect to="/dashboard" />
-        ) : (
-          <Component {...props} />
-        )
-      }
-    />
-  );
+Islogin.propTypes = {
+  children: PropTypes.element,
 };

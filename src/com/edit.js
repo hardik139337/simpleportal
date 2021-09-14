@@ -1,5 +1,6 @@
+import PropTypes from "prop-types";
 import React, { useState } from "react";
-/* eslint-disable react/prop-types */
+
 export default function Edit({ item, items, setitems, index }) {
   const [state, setState] = useState(item);
   let myChangeHandler = (event) => {
@@ -53,3 +54,10 @@ export default function Edit({ item, items, setitems, index }) {
     </tr>
   );
 }
+
+Edit.propTypes = {
+  index: PropTypes.any,
+  item: PropTypes.array,
+  items: PropTypes.array,
+  setitems: PropTypes.func,
+};

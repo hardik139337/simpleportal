@@ -1,8 +1,7 @@
+import PropTypes from "prop-types";
 import React, { useState } from "react";
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
 
-export default function Search({ items, setAllPosts, posts }) {
+export default function Search({ items, setAllPosts }) {
   const [state, setstate] = useState("");
   return (
     <>
@@ -14,7 +13,9 @@ export default function Search({ items, setAllPosts, posts }) {
           setstate(e.target.value);
           if (e.target.value != "") {
             setAllPosts(
-              items.filter((item) => item.name.includes(e.target.value))
+              items
+                .filter((item) => item.name.includes(e.target.value))
+                .slice(0, 5)
             );
           } else {
             setAllPosts(items.slice(0, 5));
@@ -24,3 +25,12 @@ export default function Search({ items, setAllPosts, posts }) {
     </>
   );
 }
+
+Search.propTypes = {
+  items: PropTypes.shape({
+    filter: PropTypes.func,
+    slice: PropTypes.func,
+  }),
+  posts: PropTypes.array,
+  setAllPosts: PropTypes.func,
+};

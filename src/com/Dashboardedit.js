@@ -1,6 +1,6 @@
+import PropTypes from "prop-types";
 import React from "react";
 import Edit from "./edit";
-/* eslint-disable react/prop-types */
 
 export default function Dashboard({ items, setitems }) {
   return (
@@ -31,3 +31,10 @@ export default function Dashboard({ items, setitems }) {
     </div>
   );
 }
+
+Dashboard.propTypes = {
+  items: PropTypes.shape({
+    map: PropTypes.func,
+  }),
+  setitems: PropTypes.func,
+};

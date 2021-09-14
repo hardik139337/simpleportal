@@ -11,6 +11,7 @@ import Details from "./com/Details";
 import Islogin from "./com/route";
 
 function App() {
+  const [islogin, setIslogin] = useState(false);
   const [items, setitems] = useState([
     { id: 1, name: "Mark", price: 2, detail: "detail of mark" },
     { id: 2, name: "Mark", price: 7, detail: "detail of mark" },
@@ -38,16 +39,16 @@ function App() {
   };
   return (
     <div>
-      <Header></Header>
+      <Header islogin={islogin} setIslogin={setIslogin}></Header>
       <Switch>
-        <Route path="/login" component={Login} />
-        {/* <Route path="/" component={Login} /> */}
+        <Route path="/signup" component={Signup} />
+        <Route path="/login">
+          <Login islogin={islogin} setIslogin={setIslogin}></Login>
+        </Route>
 
         <Islogin>
-          <Route path="/signup" component={Signup} />
           <Route path="/dashboard">
             <Dashboard items={items} setitems={setitems}></Dashboard>
-            {/* <Add additem={additem}></Add> */}
           </Route>
           <Route path="/edit">
             <div style={{ height: "20px" }}></div>

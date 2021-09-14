@@ -1,10 +1,7 @@
 import React, { useState } from "react";
-// import { useHistory } from "react-router-dom";
 
 // import "./login.css";
 export default function Login() {
-  // const history = useHistory();
-
   const [state, setState] = useState({
     id: "",
     password: "",
@@ -41,10 +38,6 @@ export default function Login() {
           className="fadeIn fourth"
           value="signup"
           onClick={() => {
-            // if (state.id == "admin" && state.password == "admin") {
-            //   localStorage.setItem("islogin", true);
-            //   history.push(`/dashboard`);
-            // }
             let users = JSON.parse(localStorage.getItem("users")) ?? [
               {
                 id: "admin",

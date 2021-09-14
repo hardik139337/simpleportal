@@ -1,6 +1,5 @@
+import PropTypes from "prop-types";
 import React, { useState } from "react";
-/* eslint-disable react/prop-types */
-//
 export default function Add({ additem }) {
   const [state, setState] = useState({ name: "", price: "", detail: "" });
   let myChangeHandler = (event) => {
@@ -37,7 +36,10 @@ export default function Add({ additem }) {
       >
         add
       </button>
-      {/* {console.log(state)} */}
     </div>
   );
 }
+
+Add.propTypes = {
+  additem: PropTypes.func,
+};

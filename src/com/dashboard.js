@@ -1,16 +1,13 @@
+import PropTypes from "prop-types";
 import React, { useState } from "react";
 import ReactPaginate from "react-paginate";
 import { Link } from "react-router-dom";
 import { CSVLink } from "react-csv";
 import Search from "./Search";
 
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
-
 export default function Dashboard({ items, setitems }) {
   const [postsPerPage] = useState(5);
-  // const [offset, setOffset] = useState(1);
-  const [pageCount, setPageCount] = useState(0);
+  const [pageCount] = useState(0);
 
   const [posts, setAllPosts] = useState(
     items.slice(
@@ -65,7 +62,6 @@ export default function Dashboard({ items, setitems }) {
                     return 0;
                   });
                   setitems(temp);
-                  // console.log(temp);
                   setAllPosts(temp.slice(0, 5));
                 }}
               >
@@ -76,14 +72,6 @@ export default function Dashboard({ items, setitems }) {
           </tr>
         </thead>
         <tbody>
-          {/* <tr>
-            <th scope="row"></th>
-            <td>
-              <input type="text" placeholder="Search" onChange={(e) => {}} />
-            </td>
-            <td></td>
-            <td></td>
-          </tr> */}
           {posts.map((item, index) => (
             <tr key={index}>
               <th scope="row">{item.id}</th>
@@ -101,11 +89,8 @@ export default function Dashboard({ items, setitems }) {
         subContainerClassName={"pages pagination"}
         activeClassName={"active"}
         pageRangeDisplayed={3}
-        // marginPagesDisplayed={3}
         pageCount={items.length / postsPerPage}
         onPageChange={(e) => {
-          // console.log(e);
-          // setPageCount(e.selected);
           setAllPosts(
             items.slice(
               e.selected * postsPerPage,
@@ -120,3 +105,11 @@ export default function Dashboard({ items, setitems }) {
     </div>
   );
 }
+
+Dashboard.propTypes = {
+  items: PropTypes.shape({
+    length: PropTypes.any,
+    slice: PropTypes.func,
+  }),
+  setitems: PropTypes.func,
+};
