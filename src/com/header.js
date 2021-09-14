@@ -13,7 +13,7 @@ function Header() {
           dashboard
         </Link>
         <Link className="btn " to="/edit">
-          edit
+          add
         </Link>
         <div style={{ marginLeft: "auto" }}>
           <Link to="login" className="btn ">
