@@ -9,6 +9,8 @@ import Add from "./com/add";
 import Dashboardedit from "./com/Dashboardedit";
 import Details from "./com/Details";
 import Islogin from "./com/route";
+import I18n from "./com/i18n";
+import Home from "./com/home";
 
 function App() {
   const [islogin, setIslogin] = useState(false);
@@ -33,35 +35,39 @@ function App() {
     { name: "Mark", price: 5, detail: "detail of mark", id: 17 },
     { name: "Mark", price: 5, detail: "detail of mark", id: 18 },
   ]);
-
   let additem = (item) => {
     setitems([...items, item]);
   };
   return (
     <div>
-      <Header islogin={islogin} setIslogin={setIslogin}></Header>
-      <Switch>
-        <Route path="/signup" component={Signup} />
-        <Route path="/login">
-          <Login islogin={islogin} setIslogin={setIslogin}></Login>
-        </Route>
+      <I18n></I18n>
+      <Header {...{ islogin, setIslogin }}></Header>
+      <div className="ms-5" style={{ width: "60%" }}>
+        <Switch>
+          <Route path="/" component={Home} exact />
 
-        <Islogin>
-          <Route path="/dashboard">
-            <Dashboard items={items} setitems={setitems}></Dashboard>
+          <Route path="/signup" component={Signup} />
+          <Route path="/login">
+            <Login {...{ islogin, setIslogin }}></Login>
           </Route>
-          <Route path="/edit">
-            <div style={{ height: "20px" }}></div>
 
-            <Add additem={additem}></Add>
-            <div style={{ height: "20px" }}></div>
-            <Dashboardedit items={items} setitems={setitems}></Dashboardedit>
-          </Route>
-          <Route path="/Details/:id">
-            <Details items={items} setitems={setitems}></Details>
-          </Route>
-        </Islogin>
-      </Switch>
+          <Islogin>
+            <Route path="/dashboard">
+              <Dashboard items={items} setitems={setitems}></Dashboard>
+            </Route>
+            <Route path="/edit">
+              <div style={{ height: "20px" }}></div>
+
+              <Add {...{ additem }}></Add>
+              <div style={{ height: "20px" }}></div>
+              <Dashboardedit {...{ items, setitems }}></Dashboardedit>
+            </Route>
+            <Route path="/Details/:id">
+              <Details {...{ items, setitems }}></Details>
+            </Route>
+          </Islogin>
+        </Switch>
+      </div>
     </div>
   );
 }

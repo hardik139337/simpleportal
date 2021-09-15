@@ -17,7 +17,7 @@ export default function Dashboard({ items, setitems }) {
   );
 
   return (
-    <div className="counter">
+    <div className="counter" >
       <table className="table">
         <thead>
           <tr>
