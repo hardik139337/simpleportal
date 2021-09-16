@@ -11,7 +11,7 @@ import Details from "./com/Details";
 import Islogin from "./com/route";
 import I18n from "./com/i18n";
 import Home from "./com/home";
-
+import Temp from "com2/temp";
 function App() {
   const [islogin, setIslogin] = useState(false);
   const [items, setitems] = useState([
@@ -45,6 +45,7 @@ function App() {
       <div className="ms-5" style={{ width: "60%" }}>
         <Switch>
           <Route path="/" component={Home} exact />
+          <Route path="/temp" component={Temp} exact />
 
           <Route path="/signup" component={Signup} />
           <Route path="/login">
