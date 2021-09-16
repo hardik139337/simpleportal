@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 // import "./login.css";
 export default function Login({ setIslogin }) {
   const history = useHistory();
-
+  let { t } = useTranslation();
   const [state, setState] = useState({
     id: '',
     password: '',
@@ -40,7 +41,7 @@ export default function Login({ setIslogin }) {
         <input
           type='submit'
           className='fadeIn fourth'
-          value='Log In'
+          value={t('Login')}
           onClick={() => {
             let users = JSON.parse(localStorage.getItem('users'));
             let tempuser = users

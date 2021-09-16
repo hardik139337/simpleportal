@@ -16,8 +16,12 @@ i18n.use(initReactI18next).init({
     },
     gujarati: {
       translation: {
-        'Welcome to React':
-          'પ્રતિક્રિયા અને પ્રતિક્રિયા- i18next માં આપનું સ્વાગત છે',
+        'welcome to react': 'પ્રતિક્રિયા આપવા માટે આપનું સ્વાગત છે',
+        'simple portal': 'સરળ પોર્ટલ',
+        'dashboard ': 'ડેશબોર્ડ',
+        'add ': 'ઉમેરો',
+        'Login ': 'પ્રવેશ કરો',
+        'Signup ': 'સાઇનઅપ',
       },
     },
   },

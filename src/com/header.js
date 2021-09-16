@@ -1,29 +1,31 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 function Header({ islogin, setIslogin }) {
+  let { t } = useTranslation();
   return (
     <div>
       <header style={{ display: 'flex' }}>
         <Link className='btn ' to='/'>
-          simple portal
+          {t('simple portal')}
         </Link>
         <Link className='btn ' to='/dashboard'>
-          dashboard
+          {t('dashboard ')}
         </Link>
         <Link className='btn ' to='/edit'>
-          add
+          {t('add ')}
         </Link>
         <div style={{ marginLeft: 'auto' }}>
           {!islogin ? (
             <>
               {' '}
               <Link to='login' className='btn '>
-                Login{' '}
+                {t('Login ')}{' '}
               </Link>
               <Link to='signup' className='btn '>
-                Signup
+                {t('Signup ')}
               </Link>
             </>
           ) : (
@@ -33,7 +35,7 @@ function Header({ islogin, setIslogin }) {
                 setIslogin(false);
               }}
             >
-              sine out
+              {t('sine out')}
             </button>
           )}
         </div>
