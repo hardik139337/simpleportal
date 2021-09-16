@@ -1,25 +1,14 @@
-/** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
-
-// import React from "react";
-// import styled from "styled-components";
-
+import { css } from '@emotion/css';
+// import { css } from "styled-components";
 export default function Home() {
-  // let Div = styled.div`
-  //   background-color: yellow;
-  //   color: red;
-  // `;
-
+  let temp = css`
+    background-color: red;
+    h5 {
+      background-color: black;
+    }
+  `;
   return (
-    <div
-      css={css`
-        color: #35b846;
-        background-color: #e6e61b;
-        h5 {
-          color: blue;
-        }
-      `}
-    >
+    <div className={`${temp} m-5`}>
       welcome to react app
       <h5>h5</h5>
     </div>

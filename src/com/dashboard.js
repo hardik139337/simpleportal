@@ -1,9 +1,9 @@
-import PropTypes from "prop-types";
-import React, { useState } from "react";
-import ReactPaginate from "react-paginate";
-import { Link } from "react-router-dom";
-import { CSVLink } from "react-csv";
-import Search from "./Search";
+import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import ReactPaginate from 'react-paginate';
+import { Link } from 'react-router-dom';
+import { CSVLink } from 'react-csv';
+import Search from './Search';
 
 export default function Dashboard({ items, setitems }) {
   const [postsPerPage] = useState(5);
@@ -17,12 +17,12 @@ export default function Dashboard({ items, setitems }) {
   );
 
   return (
-    <div className="counter">
-      <table className="table">
+    <div className='counter'>
+      <table className='table'>
         <thead>
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">
+            <th scope='col'>#</th>
+            <th scope='col'>
               <button
                 onClick={() => {
                   let temp = items;
@@ -48,7 +48,7 @@ export default function Dashboard({ items, setitems }) {
                 items={items}
               ></Search>
             </th>
-            <th scope="col">
+            <th scope='col'>
               <button
                 onClick={() => {
                   let temp = items;
@@ -68,13 +68,13 @@ export default function Dashboard({ items, setitems }) {
                 price
               </button>
             </th>
-            <th scope="col">detail</th>
+            <th scope='col'>detail</th>
           </tr>
         </thead>
         <tbody>
           {posts.map((item, index) => (
             <tr key={index}>
-              <th scope="row">{item.id}</th>
+              <th scope='row'>{item.id}</th>
               <td>{item.name}</td>
               <td>{item.price}</td>
               <td>
@@ -85,9 +85,9 @@ export default function Dashboard({ items, setitems }) {
         </tbody>
       </table>
       <ReactPaginate
-        containerClassName={"pagination"}
-        subContainerClassName={"pages pagination"}
-        activeClassName={"active"}
+        containerClassName={'pagination'}
+        subContainerClassName={'pages pagination'}
+        activeClassName={'active'}
         pageRangeDisplayed={3}
         pageCount={items.length / postsPerPage}
         onPageChange={(e) => {
@@ -99,7 +99,7 @@ export default function Dashboard({ items, setitems }) {
           );
         }}
       ></ReactPaginate>
-      <CSVLink data={items} filename="csv.csv">
+      <CSVLink data={items} filename='csv.csv'>
         csv file downloard
       </CSVLink>
     </div>

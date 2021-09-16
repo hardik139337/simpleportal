@@ -1,7 +1,11 @@
-import Login from "com/login";
+import Login from 'com/login';
 
-import React from "react";
+import React from 'react';
 
 export default function Temp() {
-  return <div><Login></Login></div>;
+  return (
+    <div>
+      <Login></Login>
+    </div>
+  );
 }

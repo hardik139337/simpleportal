@@ -1,6 +1,6 @@
-import PropTypes from "prop-types";
-import React, { useState } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import { useParams, useHistory } from 'react-router-dom';
 
 export default function Details({ items, setitems }) {
   let { id } = useParams();
@@ -20,21 +20,21 @@ export default function Details({ items, setitems }) {
   return (
     <div>
       <input
-        type="text"
+        type='text'
         value={state.name}
-        name="name"
+        name='name'
         onChange={myChangeHandler}
       ></input>
       <input
-        type="text"
+        type='text'
         value={state.price}
-        name="price"
+        name='price'
         onChange={myChangeHandler}
       ></input>
       <input
-        type="text"
+        type='text'
         value={state.detail}
-        name="detail"
+        name='detail'
         onChange={myChangeHandler}
       ></input>
 

@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 // import "./login.css";
 export default function Login() {
   const [state, setState] = useState({
-    id: "",
-    password: "",
+    id: '',
+    password: '',
     wrongpassword: false,
   });
   let myChangeHandler = (event) => {
@@ -12,40 +12,40 @@ export default function Login() {
   };
 
   return (
-    <div className="wrapper fadeInDown">
-      <div id="formContent">
-        {state.wrongpassword && "signup"}
+    <div className='wrapper fadeInDown'>
+      <div id='formContent'>
+        {state.wrongpassword && 'signup'}
         <input
           value={state.id}
-          type="text"
-          id="login"
-          className="fadeIn second"
-          name="id"
-          placeholder="signup"
+          type='text'
+          id='login'
+          className='fadeIn second'
+          name='id'
+          placeholder='signup'
           onChange={myChangeHandler}
         />
         <input
           value={state.password}
-          type="text"
-          id="password"
-          className="fadeIn third"
-          name="password"
-          placeholder="password"
+          type='text'
+          id='password'
+          className='fadeIn third'
+          name='password'
+          placeholder='password'
           onChange={myChangeHandler}
         />
         <input
-          type="submit"
-          className="fadeIn fourth"
-          value="signup"
+          type='submit'
+          className='fadeIn fourth'
+          value='signup'
           onClick={() => {
-            let users = JSON.parse(localStorage.getItem("users")) ?? [
+            let users = JSON.parse(localStorage.getItem('users')) ?? [
               {
-                id: "admin",
-                password: "admin",
+                id: 'admin',
+                password: 'admin',
               },
             ];
             localStorage.setItem(
-              "users",
+              'users',
               JSON.stringify([
                 ...users,
                 { id: state.id, password: state.password },

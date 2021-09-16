@@ -1,5 +1,5 @@
-import PropTypes from "prop-types";
-import React, { useState } from "react";
+import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 
 export default function Edit({ item, items, setitems, index }) {
   const [state, setState] = useState(item);
@@ -14,28 +14,28 @@ export default function Edit({ item, items, setitems, index }) {
   };
   return (
     <tr key={index}>
-      <th scope="row">{index}</th>
+      <th scope='row'>{index}</th>
       <td>
         <input
-          type="text"
+          type='text'
           value={state.name}
-          name="name"
+          name='name'
           onChange={myChangeHandler}
         />
       </td>
       <td>
         <input
-          type="text"
+          type='text'
           value={state.price}
-          name="price"
+          name='price'
           onChange={myChangeHandler}
         />
       </td>
       <td>
         <input
-          type="text"
+          type='text'
           value={state.detail}
-          name="detail"
+          name='detail'
           onChange={myChangeHandler}
         />
       </td>

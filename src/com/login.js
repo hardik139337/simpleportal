@@ -1,14 +1,14 @@
-import PropTypes from "prop-types";
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 // import "./login.css";
 export default function Login({ setIslogin }) {
   const history = useHistory();
 
   const [state, setState] = useState({
-    id: "",
-    password: "",
+    id: '',
+    password: '',
     wrongpassword: false,
   });
   let myChangeHandler = (event) => {
@@ -16,43 +16,43 @@ export default function Login({ setIslogin }) {
   };
 
   return (
-    <div className="wrapper fadeInDown">
-      <div id="formContent">
-        {state.wrongpassword && "wrongpassword"}
+    <div className='wrapper fadeInDown'>
+      <div id='formContent'>
+        {state.wrongpassword && 'wrongpassword'}
         <input
           value={state.id}
-          type="text"
-          id="login"
-          className="fadeIn second"
-          name="id"
-          placeholder="login"
+          type='text'
+          id='login'
+          className='fadeIn second'
+          name='id'
+          placeholder='login'
           onChange={myChangeHandler}
         />
         <input
           value={state.password}
-          type="text"
-          id="password"
-          className="fadeIn third"
-          name="password"
-          placeholder="password"
+          type='text'
+          id='password'
+          className='fadeIn third'
+          name='password'
+          placeholder='password'
           onChange={myChangeHandler}
         />
         <input
-          type="submit"
-          className="fadeIn fourth"
-          value="Log In"
+          type='submit'
+          className='fadeIn fourth'
+          value='Log In'
           onClick={() => {
-            let users = JSON.parse(localStorage.getItem("users"));
+            let users = JSON.parse(localStorage.getItem('users'));
             let tempuser = users
               ? users.filter((u) => u.id == state.id)[0]
-              : { id: "", password: "" };
+              : { id: '', password: '' };
             // console.log(tempuser);
             if (
               state.id === tempuser.id &&
               state.password === tempuser.password
             ) {
               // console.log("true");
-              localStorage.setItem("islogin", "true");
+              localStorage.setItem('islogin', 'true');
               setIslogin(true);
 
               history.push(`/dashboard`);

@@ -1,17 +1,17 @@
-import PropTypes from "prop-types";
-import React, { useState } from "react";
+import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 
 export default function Search({ items, setAllPosts }) {
-  const [state, setstate] = useState("");
+  const [state, setstate] = useState('');
   return (
     <>
       <input
-        placeholder="Search"
-        type="text"
+        placeholder='Search'
+        type='text'
         value={state}
         onChange={(e) => {
           setstate(e.target.value);
-          if (e.target.value != "") {
+          if (e.target.value != '') {
             setAllPosts(
               items
                 .filter((item) => item.name.includes(e.target.value))

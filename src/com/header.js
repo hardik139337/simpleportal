@@ -1,35 +1,35 @@
-import PropTypes from "prop-types";
-import React from "react";
-import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Header({ islogin, setIslogin }) {
   return (
     <div>
-      <header style={{ display: "flex" }}>
-        <Link className="btn " to="/">
+      <header style={{ display: 'flex' }}>
+        <Link className='btn ' to='/'>
           simple portal
         </Link>
-        <Link className="btn " to="/dashboard">
+        <Link className='btn ' to='/dashboard'>
           dashboard
         </Link>
-        <Link className="btn " to="/edit">
+        <Link className='btn ' to='/edit'>
           add
         </Link>
-        <div style={{ marginLeft: "auto" }}>
+        <div style={{ marginLeft: 'auto' }}>
           {!islogin ? (
             <>
-              {" "}
-              <Link to="login" className="btn ">
-                Login{" "}
+              {' '}
+              <Link to='login' className='btn '>
+                Login{' '}
               </Link>
-              <Link to="signup" className="btn ">
+              <Link to='signup' className='btn '>
                 Signup
               </Link>
             </>
           ) : (
             <button
               onClick={() => {
-                localStorage.removeItem("islogin");
+                localStorage.removeItem('islogin');
                 setIslogin(false);
               }}
             >
